@@ -15,8 +15,7 @@ print("Your mission is to find the tresure.")
 
 print("Left or Right? ")
 
-dir_choice = input("Type Right/Left ")
-dir_choice = dir_choice.lower()
+dir_choice = input("Type Right/Left ").lower()
 
 if dir_choice == "right":
     print("Sonic the Hedgehog has reached the island. You lose.")
@@ -26,16 +25,12 @@ else:
     print("Invalid Entry!")
 
 
-print("""
-    Your map shows that you need to get to Treasure Island, you can wait to board a ship or swim accross the 
-sea, pick one. """)
+print("""Your map shows that you need to get to Treasure Island, you can wait to board a ship or swim accross the sea, pick one. """)
 
 
-swim_or_not = input("Type Swim/Wait: ")
+swim_or_not = input("Type Swim/Wait: ").lower()
 if swim_or_not == "wait":
-    print("""
-        Nice, you made it to the next level, you're pretty good at this!
-    """)
+    print("""Nice, you made it to the next level, you're pretty good at this!""")
 elif swim_or_not == "swim":
     print("You're eaten by a shark. Game over!")
 else:
@@ -46,7 +41,7 @@ print("""
     Now that you've made it to Treasure Island, you can dig or search the cave. 
 """)
 
-dig_or_cave = input("Type Dig/Cave: ")
+dig_or_cave = input("Type Dig/Cave: ").lower()
 
 if dig_or_cave == "dig":
     print("You've found the treasure, you win!")

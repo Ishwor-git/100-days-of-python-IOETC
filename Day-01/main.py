@@ -1,15 +1,12 @@
+print("\n\n\n\tWelcome to the tip calculator!\n\n")
+print("What is the total bill amount?")
+bill = float(input("Bill Amount :\t"))
+print("How much tip would you like to give?")
+tip = float(input("Percent : \t"))
+print('How many people to split the bill?')
+people = float(input("People :\t"))
 
-print("Welcome to tip calculator")
-print("What is the total bill amount ? ")
-bill_amount = float(input("> Rs "))
+print("\n\nEach person should pay {}".format(bill*(100+tip)/(100*people)))
 
-print("How much tip would you like to give ? (in percentage) ")
-tip_perc = float(input("> "))
 
-print("How many people to split the bill ?")
-no_people = int(input("> "))
 
-tot_amount = bill_amount *(100+tip_perc)/100
-split_amount = tot_amount / no_people
-
-print("Each person should pay Rs {}".format(split_amount))

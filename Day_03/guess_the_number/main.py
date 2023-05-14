@@ -9,57 +9,32 @@ while True:
     difficulty = input("Easy/Hard?  ").lower()
 
     if difficulty == 'easy':
-        print("Difficulty level set to 'Easy'. You have 10 tries to guess the number.")
-        print()
-
         c = 10
-        ran_gen_num = random.randint(1, 100)
-
-        while c > 0:
-            print(f"You have {c} guesses left for the number that I'm thinking of.")
-            print()
-            guess = int(input("Take your guess: "))
-            if guess < ran_gen_num:
-                print("Too low.")
-                print()
-                c -= 1
-            elif guess > ran_gen_num:
-                print("Too high.")
-                print()
-                c -= 1
-            elif guess == ran_gen_num:
-                print(f"Correct! The answer was {ran_gen_num}. Thanks for completing that!")
-                print()
-                break
-        
-        if c == 0:
-            print(f"You exceeded the number of guesses limit. You lose! The correct number was {ran_gen_num}")
-            print()
-    
 
     elif difficulty == 'hard':
-        print("Difficulty level set to 'Hard'. You have 5 tries to guess the number.")
-        print()
-
         c = 5
-        ran_gen_num = random.randint(1, 100)
+    
+    print(f"Difficulty level set to '{difficulty}'. You have {c} tries to guess the number.")
+    print()
 
-        while c > 0:
-            print(f"You have {c} guesses left for the number that I'm thinking of.")
+    ran_gen_num = random.randint(1, 100)
+
+    while c > 0:
+        print(f"You have {c} guesses left for the number that I'm thinking of.")
+        print()
+        guess = int(input("Take your guess: "))
+        if guess < ran_gen_num:
+            print("Too low.")
             print()
-            guess = int(input("Take your guess: "))
-            if guess < ran_gen_num:
-                print("Too low.")
-                print()
-                c -= 1
-            elif guess > ran_gen_num:
-                print("Too high.")
-                print()
-                c -= 1
-            elif guess == ran_gen_num:
-                print(f"Correct! The answer was {ran_gen_num}. Thanks for completing that!")
-                print()
-                break
+            c -= 1
+        elif guess > ran_gen_num:
+            print("Too high.")
+            print()
+            c -= 1
+        elif guess == ran_gen_num:
+            print(f"Correct! The answer was {ran_gen_num}. Thanks for completing that!")
+            print()
+            break
         
         if c == 0:
             print(f"You exceeded the number of guesses limit. You lose! The correct number was {ran_gen_num}")

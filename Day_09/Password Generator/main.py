@@ -53,7 +53,7 @@ print(f"Here is your password: {password}")
 if len(password) <= 6:
     print("Weak Password!")
 elif len(password) == 7:
-    print("Medium.")
+    print("Password strength is medium.")
 else:
     print("Your password is strong.")
 

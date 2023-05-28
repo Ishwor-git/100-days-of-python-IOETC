@@ -11,7 +11,7 @@ import random
 
 # Functions
 
-def balance_account(command, bet=0):
+def balance_account(command:str, bet=0):
     if command == 'add':
         amt = int(input("Enter amount you want to add in USD >>"))
         usr_blc[3] += amt
@@ -25,7 +25,7 @@ def balance_account(command, bet=0):
         house_blc[2] += bet
         print("You win !")
     
-    elif command == 'loose':
+    elif command == 'lose':
         usr_blc[2] += (4/5) * bet
         house_blc[1] += (4/5) * bet
         print("You lost !")
@@ -33,8 +33,8 @@ def balance_account(command, bet=0):
 
 def game_center():
 
-    dice1 = random.randint(1,7)
-    dice2 = random.randint(1,7)
+    dice1 = random.randint(1,6)
+    dice2 = random.randint(1,6)
 
     sum = dice1 + dice2
     value = ''
@@ -46,14 +46,14 @@ def game_center():
     
     usr_bet = float(input("What is your bet ? >> "))
     usr_inp = input("What is your guess (cho/han) ? >> ")
-
+    print("Dice 1 : {}  Dice 2 : {}".format(dice1,dice2))
     if usr_inp == value:
         balance_account('win', bet=usr_bet)
     else:
-        balance_account('loose',bet=usr_bet)
-        pass
+        balance_account('lose',bet=usr_bet)
+    pass
 
-def command_center(command):
+def command_center(command:str):
     if command == '/a':
         balance_account('add')
 

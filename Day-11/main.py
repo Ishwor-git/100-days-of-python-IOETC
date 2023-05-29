@@ -21,8 +21,8 @@ def balance_account(command:str, bet=0):
         print("Your current blc is {}".format(tot_usr))
     
     elif command == 'win':
-        usr_blc[1] += bet 
-        house_blc[2] += bet
+        usr_blc[1] += bet * 1.5 
+        house_blc[2] += bet * 1.5
         print("You win !")
     
     elif command == 'lose':
@@ -73,7 +73,7 @@ def command_center(command:str):
 print('''Welcome to Cho-han. We roll two dice
 and you will guess if two dice add to even(Cho) or odd(han). 
 You start with $100 and can add more using commands
-You can bet in percentage but use'll loose 4/5 of amount you'll win.
+If you win you'll receive 150% of amount you bet but use'll loose 4/5 of amount you bet.
 ''')
 print(''' List of commands you can use :
 /q = quit game at current state.
@@ -88,7 +88,7 @@ while True:
     ch = input("\ncommand >> ").lower()
     if ch == '/q':
         print("\n\nYour Stat !!!\nStarting amount : {}\nTotal profit : {}\nTotal Loss : {}\nAddition amount you spent : {}\nTotal current sum : {}".format(usr_blc[0],usr_blc[1],usr_blc[2],usr_blc[3],tot_usr))
-        print("\nHouse stat !!!\nTotal profit : {}\nTotal Loss : {}\nTotal current sum : {}".format(house_blc[1],house_blc[2],tot_house - house_blc[0]))
+        print("\nHouse stat !!!\nTotal profit : {}\nTotal Loss : {}".format(house_blc[1],house_blc[2]))
         break
     else:
       command_center(ch)

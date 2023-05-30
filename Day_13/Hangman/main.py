@@ -71,7 +71,7 @@ class HangMan:
                         "UX/UI design", "video streaming"
 ]
 
-        self.rand_word = random.choice(self.words)
+        self.rand_word = random.choice(self.words).lower()
         self.dummy = self.rand_word
 
 
@@ -81,7 +81,7 @@ class HangMan:
 
 
     def game(self):
-        print(self.dummy)
+        
         spaces = []
         c = 0
         incorrect_letters = []

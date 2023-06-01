@@ -119,6 +119,7 @@ class HangMan:
                     print(" ".join(map(str, spaces)))
                     if sorted(correct_letters) == sorted(letters):
                         print(f"\n\n'{self.dummy.lower()}' is the word. You guessed it right!!!")
+                        c = 6
                         break
                     if c == 6:
                         print(f"\n\n Game over! You lose! The word was '{self.dummy.lower()}' ")

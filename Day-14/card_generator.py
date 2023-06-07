@@ -72,7 +72,7 @@ def ascii_version_of_card(cards:list, return_string=True):
         return result
 
 
-def ascii_version_of_hidden_card(*cards):
+def ascii_version_of_hidden_card(cards:list):
     """
     :param cards: A list of card objects, the first will be hidden
     :return: A string, the nice ascii version of cards
@@ -81,7 +81,7 @@ def ascii_version_of_hidden_card(*cards):
     lines = [['┌─────────┐'], ['│░░░░░░░░░│'], ['│░░░░░░░░░│'], ['│░░░░░░░░░│'], ['│░░░░░░░░░│'], ['│░░░░░░░░░│'], ['│░░░░░░░░░│'], ['│░░░░░░░░░│'], ['└─────────┘']]
 
     # store the non-flipped over card after the one that is flipped over
-    cards_except_first = ascii_version_of_card(*cards[1:], return_string=False)
+    cards_except_first = ascii_version_of_card(cards[1:], return_string=False)
     for index, line in enumerate(cards_except_first):
         lines[index].append(line)
 
@@ -99,5 +99,5 @@ test_card_2 = Card('Clubs', 'Ace')
 test_card_3 = Card('Spades', 'Jack')
 test_card_4 = Card('Hearts', '10')
 cards = [test_card_1,test_card_2]
-print(ascii_version_of_card(cards))
+print(ascii_version_of_hidden_card(cards))
 

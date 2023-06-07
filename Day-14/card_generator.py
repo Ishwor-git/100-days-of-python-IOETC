@@ -25,7 +25,7 @@ class Card(object):
         self.rank = rank
         self.points = self.card_values[rank]
 
-def ascii_version_of_card(*cards, return_string=True):
+def ascii_version_of_card(cards:list, return_string=True):
     """
     :param cards: One or more card objects
     :param return_string: By default we return the string version of the card, but the dealer hide the 1st card and we
@@ -98,4 +98,6 @@ test_card_1 = Card('Diamonds', '4')
 test_card_2 = Card('Clubs', 'Ace')
 test_card_3 = Card('Spades', 'Jack')
 test_card_4 = Card('Hearts', '10')
+cards = [test_card_1,test_card_2]
+print(ascii_version_of_card(cards))
 

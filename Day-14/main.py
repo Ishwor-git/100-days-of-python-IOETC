@@ -7,6 +7,8 @@ deck_52 = []
 player_hand = []
 dealer_hand = []
 suits_name = ['Spades', 'Diamonds', 'Hearts', 'Clubs']
+player_total =0
+dealer_total = 0
 
 #class
 class Card(object):
@@ -34,9 +36,7 @@ class Card(object):
         """
         self.suit = suit.capitalize()
         self.rank = rank
-        self.points = self.card_values[rank]
-
-
+        self.points = self.card_values[rank]\
 
 #Functions
 def ascii_version_of_card(cards:list, return_string=True):
@@ -117,19 +117,49 @@ def deck_generator(type:str):
     deck.append(Card(type,'Ace'))
     return deck
 
-def get_card(card_no:int):
+def get_card(card_no:int,dealer=False):
     global player_hand,dealer_hand
-
-    for i in range(card_no):
-        if (i+1) % 2 == 0:
+    if dealer:
+        for i in range(card_no):
             dealer_hand.append(deck_52[0])
             deck_52.pop(0)
+    else:
+        for i in range(card_no):
+            if (i+1) % 2 == 0:
+                dealer_hand.append(deck_52[0])
+                deck_52.pop(0)
+            else:
+                player_hand.append(deck_52[0])
+                deck_52.pop(0)
+    
+def get_total_value(user:list):
+    total = 0
+    for card in user:  
+        total += card.points
+    
+    for card in user:
+        if card.rank == 'Ace' and total > 21:
+            total -= 10
+    return total
+
+def game_main():
+    if player_total == 21:
+        print("player won !")
+
+    elif dealer_total >= 17:
+
+        if dealer_total > 21:
+            print("player_hand Wins!")
         else:
-            player_hand.append(deck_52[0])
-            pass
-    pass
 
-
+            if dealer_total > player_total:
+                print("Dealer wins")
+            else:
+                print("player_hand Wins!")
+    else:
+        while dealer_total < 17:
+            get_card(1,dealer=True)
+            dealer_total = get_total_value(dealer_hand)
 
 #Start Coding Here
 for type in suits_name:
@@ -139,5 +169,13 @@ random.shuffle(deck_52)
 get_card(4)
 #print(cg.ascii_version_of_hidden_card([cg.test_card_1,cg.test_card_2]))
 print(ascii_version_of_hidden_card(dealer_hand))
-#print(cg.ascii_version_of_card(player_hand))
+print(ascii_version_of_card(player_hand))
+
+player_total = get_total_value(player_hand)
+dealer_total = get_total_value(dealer_hand)
+
+
+
+
+
 

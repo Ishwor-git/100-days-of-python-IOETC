@@ -148,7 +148,7 @@ def game_main():
 
     elif dealer_total >= 17:
 
-        if dealer_total > 21:
+        if dealer_total > 21 & player_total <21:
             print("player_hand Wins!")
         else:
 
@@ -160,6 +160,9 @@ def game_main():
         while dealer_total < 17:
             get_card(1,dealer=True)
             dealer_total = get_total_value(dealer_hand)
+
+def header():
+    pass
 
 #Start Coding Here
 for type in suits_name:

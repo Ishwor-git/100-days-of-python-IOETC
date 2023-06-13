@@ -176,6 +176,7 @@ print(ascii_version_of_card(player_hand))
 
 player_total = get_total_value(player_hand)
 dealer_total = get_total_value(dealer_hand)
+#end of code
 
 
 

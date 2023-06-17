@@ -117,11 +117,15 @@ def deck_generator(type:str):
     deck.append(Card(type,'Ace'))
     return deck
 
-def get_card(card_no:int,dealer=False):
+def get_card(card_no:int,dealer=False,player=False):
     global player_hand,dealer_hand
     if dealer:
         for i in range(card_no):
             dealer_hand.append(deck_52[0])
+            deck_52.pop(0)
+    elif player:
+        for i in range(card_no):
+            player_hand.append(deck_52[0])
             deck_52.pop(0)
     else:
         for i in range(card_no):
@@ -180,8 +184,9 @@ Stand --> No need for new card
 hit --> Need one more card
 ''')
 #loop
-
 header()
+usr_ch = input("Would you like to (S)tand or (H)it >> ").upper()
+
 #end of code
 
 

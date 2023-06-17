@@ -162,6 +162,11 @@ def game_main():
             dealer_total = get_total_value(dealer_hand)
 
 def header():
+    print("DEALER ---->")
+    print(ascii_version_of_hidden_card(dealer_hand))
+    print()
+    print("YOU ---->")
+    print(ascii_version_of_card(player_hand))
     pass
 
 #Start Coding Here
@@ -170,12 +175,13 @@ for type in suits_name:
 
 random.shuffle(deck_52)
 get_card(4)
-#print(cg.ascii_version_of_hidden_card([cg.test_card_1,cg.test_card_2]))
-print(ascii_version_of_hidden_card(dealer_hand))
-print(ascii_version_of_card(player_hand))
+print('''
+Stand --> No need for new card
+hit --> Need one more card
+''')
+#loop
 
-player_total = get_total_value(player_hand)
-dealer_total = get_total_value(dealer_hand)
+header()
 #end of code
 
 

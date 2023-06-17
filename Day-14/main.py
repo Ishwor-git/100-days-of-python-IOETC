@@ -127,6 +127,7 @@ def get_card(card_no:int,dealer=False,player=False):
         for i in range(card_no):
             player_hand.append(deck_52[0])
             deck_52.pop(0)
+        return None
     else:
         for i in range(card_no):
             if (i+1) % 2 == 0:
@@ -186,6 +187,16 @@ hit --> Need one more card
 #loop
 header()
 usr_ch = input("Would you like to (S)tand or (H)it >> ").upper()
+
+while True:
+        
+    if usr_ch == 'H':
+        get_card(1, player=True)
+    elif usr_ch == 's':
+        pass
+    else:
+        print("Unrecognized command. Please try again !")
+
 
 #end of code
 
